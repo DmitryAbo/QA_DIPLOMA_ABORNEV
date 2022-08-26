@@ -21,7 +21,7 @@ public class DBUtils {
         String cardTransactionsSQL = "DELETE FROM order_entity";
         String cardsSQL = "DELETE FROM payment_entity";
         try (
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app",
+                Connection conn = DriverManager.getConnection(System.getProperty("db.url"),
                         "app_user",
                         "password")
         ) {
@@ -38,7 +38,7 @@ public class DBUtils {
         String payEntityRq = "SELECT * FROM payment_entity;";
         int countEntity = 0;
         try (
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app",
+                Connection conn = DriverManager.getConnection(System.getProperty("db.url"),
                         "app_user",
                         "password");
                 Statement statement = conn.createStatement();
@@ -66,7 +66,7 @@ public class DBUtils {
     public String checkCreditEntityStatus() {
         String creditEntityStatusRq = "SELECT * FROM credit_request_entity;";
         try (
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app",
+                Connection conn = DriverManager.getConnection(System.getProperty("db.url"),
                         "app_user",
                         "password");
                 Statement statement = conn.createStatement();
@@ -85,7 +85,7 @@ public class DBUtils {
     public String checkPayEntityStatus() {
         String payStatusRq = "SELECT * FROM payment_entity;";
         try (
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app",
+                Connection conn = DriverManager.getConnection(System.getProperty("db.url"),
                         "app_user",
                         "password");
                 Statement statement = conn.createStatement();
@@ -103,7 +103,7 @@ public class DBUtils {
     public int getPayAmount() {
         String payStatusRq = "SELECT * FROM payment_entity;";
         try (
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app",
+                Connection conn = DriverManager.getConnection(System.getProperty("db.url"),
                         "app_user",
                         "password");
                 Statement statement = conn.createStatement();

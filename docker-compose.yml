@@ -1,4 +1,4 @@
-version: '3.0'
+version: '3.1'
 services:
     mysql:
         image: mysql:latest
@@ -13,3 +13,14 @@ services:
             - MYSQL_DATABASE=app
             - MYSQL_USER=app_user
             - MYSQL_PASSWORD=password
+
+    postgres:
+        image: postgres:12-alpine
+        ports:
+            - '5432:5432'
+        volumes:
+            - ./docker-entrypoint-initdb.d
+        environment:
+            - POSTGRES_DB=app
+            - POSTGRES_USER=app_user
+            - POSTGRES_PASSWORD=password
