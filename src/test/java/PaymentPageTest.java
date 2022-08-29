@@ -102,7 +102,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(60));
+        paymentPage.checkUnSuccessPay().shouldBe(Condition.visible, Duration.ofSeconds(60));
         assertTrue(DBUtils.checkEntityCount() == 5);
         assertEquals(declinedStatus, DBUtils.checkPayEntityStatus());
     }
@@ -117,7 +118,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(60));
+        paymentPage.checkUnSuccessPay().shouldBe(Condition.visible, Duration.ofSeconds(60));
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
 
@@ -468,7 +470,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(60));
+        paymentPage.checkUnSuccessPay().shouldBe(Condition.visible, Duration.ofSeconds(60));
         assertTrue(DBUtils.checkEntityCount() == 3);
         assertEquals(declinedStatus, DBUtils.checkCreditEntityStatus());
     }
@@ -483,7 +486,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(60));
+        paymentPage.checkUnSuccessPay().shouldBe(Condition.visible, Duration.ofSeconds(60));
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
 

@@ -17,17 +17,17 @@ public class DBUtils {
     @SneakyThrows
     public static void cleanDB() {
         QueryRunner runner = new QueryRunner();
-        String authCodeSQL = "DELETE FROM credit_request_entity";
-        String cardTransactionsSQL = "DELETE FROM order_entity";
-        String cardsSQL = "DELETE FROM payment_entity";
+        String credit = "DELETE FROM credit_request_entity";
+        String order = "DELETE FROM order_entity";
+        String payment = "DELETE FROM payment_entity";
         try (
                 Connection conn = DriverManager.getConnection(System.getProperty("db.url"),
-                        "app_user",
-                        "password")
+                        "app",
+                        "pass")
         ) {
-            runner.execute(conn, authCodeSQL);
-            runner.execute(conn, cardTransactionsSQL);
-            runner.execute(conn, cardsSQL);
+            runner.execute(conn, credit);
+            runner.execute(conn, order);
+            runner.execute(conn, payment);
         }
     }
 
@@ -39,8 +39,8 @@ public class DBUtils {
         int countEntity = 0;
         try (
                 Connection conn = DriverManager.getConnection(System.getProperty("db.url"),
-                        "app_user",
-                        "password");
+                        "app",
+                        "pass");
                 Statement statement = conn.createStatement();
         ) {
             try (ResultSet resultSet = statement.executeQuery(creditEntityRq)) {
@@ -67,8 +67,8 @@ public class DBUtils {
         String creditEntityStatusRq = "SELECT * FROM credit_request_entity;";
         try (
                 Connection conn = DriverManager.getConnection(System.getProperty("db.url"),
-                        "app_user",
-                        "password");
+                        "app",
+                        "pass");
                 Statement statement = conn.createStatement();
         ) {
             try (ResultSet resultSet = statement.executeQuery(creditEntityStatusRq)) {
@@ -86,8 +86,8 @@ public class DBUtils {
         String payStatusRq = "SELECT * FROM payment_entity;";
         try (
                 Connection conn = DriverManager.getConnection(System.getProperty("db.url"),
-                        "app_user",
-                        "password");
+                        "app",
+                        "pass");
                 Statement statement = conn.createStatement();
         ) {
             try (ResultSet resultSet = statement.executeQuery(payStatusRq)) {
@@ -104,8 +104,8 @@ public class DBUtils {
         String payStatusRq = "SELECT * FROM payment_entity;";
         try (
                 Connection conn = DriverManager.getConnection(System.getProperty("db.url"),
-                        "app_user",
-                        "password");
+                        "app",
+                        "pass");
                 Statement statement = conn.createStatement();
         ) {
             try (ResultSet resultSet = statement.executeQuery(payStatusRq)) {
