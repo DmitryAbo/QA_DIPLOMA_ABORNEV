@@ -15,8 +15,15 @@
   
 ### Общие рекомендации
 #### Обнаружены дефекты
+Скисок обнаруженных дефектов https://github.com/DmitryAbo/QA_DIPLOMA_ABORNEV/issues
 
 #### Рекомендации
+1. Исправить критически важные дефекты:
+  - [Значение таблице БД payment_entity.amount отличается от указанного на сайте](https://github.com/DmitryAbo/QA_DIPLOMA_ABORNEV/issues/1)
+  - [Отсутствует валидация поля "Владелец" покупка](https://github.com/DmitryAbo/QA_DIPLOMA_ABORNEV/issues/11)
+  - [Отсутствует валидация поля "Владелец" кредит](https://github.com/DmitryAbo/QA_DIPLOMA_ABORNEV/issues/10)
+
+1. Поправить текстовки ошибок возникающих в процессе заполнения формы оплаты некорректными данными
 
 
 
