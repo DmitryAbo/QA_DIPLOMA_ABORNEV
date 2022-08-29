@@ -124,7 +124,7 @@ class PaymentPageTest {
     }
 
     @Test
-    void shouldFailPayBoundaryMountMinus() {
+    void shouldFailPayBoundaryMonthMinus() {
         var paymentPage = new PaymentPage();
         paymentPage.buttonBuyClick();
         paymentPage.setValueCardNumber(DataHelper.getApprovedPan());
@@ -133,8 +133,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(cardExpireNotification, paymentPage.checkFailMonth().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -149,8 +149,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(cardExpireNotification, paymentPage.checkFailYear().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -165,8 +165,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(cardInvalidExpirationDate, paymentPage.checkFailYear().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -181,8 +181,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(emptyErrorNotification, paymentPage.checkFailCardNumber().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -197,8 +197,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailCardNumber().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -213,8 +213,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailCardNumber().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -229,8 +229,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(emptyErrorNotification, paymentPage.checkFailMonth().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -245,8 +245,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailMonth().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -261,8 +261,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailMonth().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -277,8 +277,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailMonth().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -293,8 +293,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(emptyErrorNotification, paymentPage.checkFailYear().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -309,8 +309,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailYear().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -325,8 +325,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailYear().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -341,8 +341,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner("");
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(emptyErrorNotification, paymentPage.checkFailOwner().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -357,8 +357,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner("ФФ!;:990");
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(emptyErrorNotification, paymentPage.checkFailOwner().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -373,8 +373,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc("");
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(emptyErrorNotification, paymentPage.checkFailCvc().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -389,8 +389,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc("0");
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailCvc().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -405,8 +405,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc("!AboФТ??11");
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailCvc().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -430,7 +430,7 @@ class PaymentPageTest {
     }
 
     @Test
-    void shouldApprovedCreditBoundaryMountPlus() {
+    void shouldApprovedCreditBoundaryMonthPlus() {
         var paymentPage = new PaymentPage();
         paymentPage.buttonCreditClick();
         paymentPage.setValueCardNumber(DataHelper.getApprovedPan());
@@ -501,8 +501,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(cardExpireNotification, paymentPage.checkFailMonth().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -517,8 +517,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(cardExpireNotification, paymentPage.checkFailYear().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -533,8 +533,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(cardInvalidExpirationDate, paymentPage.checkFailYear().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -549,8 +549,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(emptyErrorNotification, paymentPage.checkFailCardNumber().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -565,8 +565,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailCardNumber().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -581,8 +581,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailCardNumber().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -597,8 +597,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(emptyErrorNotification, paymentPage.checkFailMonth().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -613,8 +613,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailMonth().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -629,8 +629,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailMonth().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -645,8 +645,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailMonth().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -661,8 +661,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(emptyErrorNotification, paymentPage.checkFailYear().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -677,8 +677,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailYear().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -693,8 +693,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailYear().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -709,8 +709,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner("");
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(emptyErrorNotification, paymentPage.checkFailOwner().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -725,8 +725,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner("ФФ!;:990");
         paymentPage.setValueCvc(DataHelper.getCvcCode(true));
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(emptyErrorNotification, paymentPage.checkFailOwner().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -741,8 +741,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc("");
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(emptyErrorNotification, paymentPage.checkFailCvc().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -757,8 +757,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc("0");
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailCvc().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
@@ -773,8 +773,8 @@ class PaymentPageTest {
         paymentPage.setValueOwner(DataHelper.getOwner(true, "en"));
         paymentPage.setValueCvc("!AboФТ??11");
         paymentPage.buttonSendClick();
-        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
-        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible,Duration.ofSeconds(15));
+        paymentPage.checkUnSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
+        paymentPage.checkSuccessPay().shouldNotBe(Condition.visible, Duration.ofSeconds(15));
         assertEquals(formatErrorNotification, paymentPage.checkFailCvc().getOwnText());
         assertTrue(DBUtils.checkEntityCount() == 0);
     }
