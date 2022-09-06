@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Getter
 @NoArgsConstructor
-public class PaymentPage {
+public class CreditPage {
 
     private SelenideElement buttonSend = $x("//*[text()='Продолжить']//ancestor::button");
     private SelenideElement cardNumberField = $x("//span[contains(text(),'Номер карты')]//ancestor::span[contains(@class,'input')]//input");
@@ -35,7 +35,7 @@ public class PaymentPage {
 
     public void checkFailCardNumber(String notification) {
         SelenideElement cardNumberNotification = $x("//span[contains(text(),'Номер карты')]//ancestor::span[contains(@class,'input')]//child::span[@class='input__sub']");
-        assertEquals(notification, cardNumberNotification.getOwnText());
+        assertEquals(notification,cardNumberNotification.getOwnText());
     }
 
     public void setValueMonth(String month) {
@@ -45,7 +45,7 @@ public class PaymentPage {
 
     public void checkFailMonth(String notification) {
         SelenideElement monthFieldNotification = $x("//span[contains(text(),'Месяц')]//ancestor::span[contains(@class,'input-group__input-case')]//span[@class='input__sub']");
-        assertEquals(notification, monthFieldNotification.getOwnText());
+        assertEquals(notification,monthFieldNotification.getOwnText());
     }
 
     public void setValueYear(String year) {
@@ -55,7 +55,7 @@ public class PaymentPage {
 
     public void checkFailYear(String notification) {
         SelenideElement yearField = $x("//span[contains(text(),'Год')]//ancestor::span[contains(@class,'input-group__input-case')]//span[@class='input__sub']");
-        assertEquals(notification, yearField.getOwnText());
+        assertEquals(notification,yearField.getOwnText());
     }
 
     public void setValueOwner(String holder) {
@@ -65,7 +65,7 @@ public class PaymentPage {
 
     public void checkFailOwner(String notification) {
         SelenideElement ownerField = $x("//span[contains(text(),'Владелец')]//ancestor::span[contains(@class,'input-group__input-case')]//span[@class='input__sub']");
-        assertEquals(notification, ownerField.getOwnText());
+        assertEquals(notification,ownerField.getOwnText());
     }
 
     public void setValueCvc(String cvc) {
@@ -75,10 +75,10 @@ public class PaymentPage {
 
     public void checkFailCvc(String notification) {
         SelenideElement cvcField = $x("//span[contains(text(),'CVC/CVV')]//ancestor::span[contains(@class,'input-group__input-case')]//span[@class='input__sub']");
-        assertEquals(notification, cvcField.getOwnText());
+        assertEquals(notification,cvcField.getOwnText());
     }
 
-    public void checkOperationStatusVisible(String operationStatusExpect) {
+    public void checkOperationStatusVisible(String operationStatusExpect){
         SelenideElement operationStatus = $x("//div[contains(text(),\"" + operationStatusExpect + "\")]");
         operationStatus.shouldBe(Condition.visible, Duration.ofSeconds(60));
     }
@@ -87,4 +87,5 @@ public class PaymentPage {
         SelenideElement operationStatus = $x("//div[contains(text(),\"" + operationStatusExpect + "\")]");
         operationStatus.shouldBe(Condition.hidden, Duration.ofSeconds(15));
     }
+
 }

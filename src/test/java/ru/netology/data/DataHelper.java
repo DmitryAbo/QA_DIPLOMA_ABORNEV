@@ -23,37 +23,30 @@ public class DataHelper {
         return String.valueOf((long) (Math.random() * 1000000000000000.0));
     }
 
-    public static String getOwner(boolean valid, String locale) {
+    public static String getValidOwner(String locale) {
         Faker faker = new Faker(new Locale(locale));
-        if (valid) {
-            return faker.name().lastName();
-        } else {
-            return faker.name().lastName() + "-?";
-        }
+        return faker.name().lastName();
     }
 
-    public static String getCvcCode(boolean valid) {
-        if (valid) {
-            return String.valueOf((long) ((Math.random() + 0.1) * 1000));
-        } else {
-            return String.valueOf((long) ((Math.random() + 0.1) * 100));
-        }
+    public static String getInvalidOwner(String locale) {
+        Faker faker = new Faker(new Locale(locale));
+        return faker.name().lastName() + "-?";
     }
 
-    public static String getYear(int offset, boolean plusYears) {
-        if (plusYears) {
-            return LocalDate.now().plusYears(offset).format(DateTimeFormatter.ofPattern("yy"));
-        } else {
-            return LocalDate.now().minusYears(offset).format(DateTimeFormatter.ofPattern("yy"));
-        }
+    public static String getValidCvcCode() {
+        return String.valueOf((long) ((Math.random() + 0.1) * 1000));
     }
 
-    public static String getMonth(int offset, boolean plusMonth) {
-        if (plusMonth) {
-            return LocalDate.now().plusMonths(offset).format(DateTimeFormatter.ofPattern("MM"));
-        } else {
-            return LocalDate.now().minusMonths(offset).format(DateTimeFormatter.ofPattern("MM"));
-        }
+    public static String getInvalidCvcCode() {
+        return String.valueOf((long) ((Math.random() + 0.1) * 100));
+    }
+
+    public static String getYear(int offset) {
+        return LocalDate.now().plusYears(offset).format(DateTimeFormatter.ofPattern("yy"));
+    }
+
+    public static String getMonth(int offset) {
+        return LocalDate.now().plusMonths(offset).format(DateTimeFormatter.ofPattern("MM"));
     }
 
     public static String getInvalidDate() {
