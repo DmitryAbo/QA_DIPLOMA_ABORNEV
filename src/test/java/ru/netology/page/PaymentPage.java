@@ -21,8 +21,12 @@ public class PaymentPage {
     private SelenideElement monthField = $x("//span[contains(text(),'Месяц')]//ancestor::span[contains(@class,'input-group__input-case')]//input");
     private SelenideElement yearField = $x("//span[contains(text(),'Год')]//ancestor::span[contains(@class,'input-group__input-case')]//input");
     private SelenideElement ownerField = $x("//span[contains(text(),'Владелец')]//ancestor::span[contains(@class,'input-group__input-case')]//input");
-
     private SelenideElement cvcField = $x("//span[contains(text(),'CVC/CVV')]//ancestor::span[contains(@class,'input-group__input-case')]//input");
+    private SelenideElement cardNumberNotification = $x("//span[contains(text(),'Номер карты')]//ancestor::span[contains(@class,'input')]//child::span[@class='input__sub']");
+    private SelenideElement monthFieldNotification = $x("//span[contains(text(),'Месяц')]//ancestor::span[contains(@class,'input-group__input-case')]//span[@class='input__sub']");
+    private SelenideElement yearFieldNotification = $x("//span[contains(text(),'Год')]//ancestor::span[contains(@class,'input-group__input-case')]//span[@class='input__sub']");
+    private SelenideElement ownerFieldNotification = $x("//span[contains(text(),'Владелец')]//ancestor::span[contains(@class,'input-group__input-case')]//span[@class='input__sub']");
+    private SelenideElement cvcFieldNotification = $x("//span[contains(text(),'CVC/CVV')]//ancestor::span[contains(@class,'input-group__input-case')]//span[@class='input__sub']");
 
     public void buttonSendClick() {
         buttonSend.click();
@@ -34,8 +38,7 @@ public class PaymentPage {
     }
 
     public void checkFailCardNumber(String notification) {
-        SelenideElement cardNumberNotification = $x("//span[contains(text(),'Номер карты')]//ancestor::span[contains(@class,'input')]//child::span[@class='input__sub']");
-        assertEquals(notification, cardNumberNotification.getOwnText());
+        cardNumberNotification.shouldHave(Condition.text(notification)).shouldBe(Condition.visible);
     }
 
     public void setValueMonth(String month) {
@@ -44,8 +47,7 @@ public class PaymentPage {
     }
 
     public void checkFailMonth(String notification) {
-        SelenideElement monthFieldNotification = $x("//span[contains(text(),'Месяц')]//ancestor::span[contains(@class,'input-group__input-case')]//span[@class='input__sub']");
-        assertEquals(notification, monthFieldNotification.getOwnText());
+        monthFieldNotification.shouldHave(Condition.text(notification)).shouldBe(Condition.visible);
     }
 
     public void setValueYear(String year) {
@@ -54,8 +56,7 @@ public class PaymentPage {
     }
 
     public void checkFailYear(String notification) {
-        SelenideElement yearField = $x("//span[contains(text(),'Год')]//ancestor::span[contains(@class,'input-group__input-case')]//span[@class='input__sub']");
-        assertEquals(notification, yearField.getOwnText());
+        yearFieldNotification.shouldHave(Condition.text(notification)).shouldBe(Condition.visible);
     }
 
     public void setValueOwner(String holder) {
@@ -64,8 +65,7 @@ public class PaymentPage {
     }
 
     public void checkFailOwner(String notification) {
-        SelenideElement ownerField = $x("//span[contains(text(),'Владелец')]//ancestor::span[contains(@class,'input-group__input-case')]//span[@class='input__sub']");
-        assertEquals(notification, ownerField.getOwnText());
+        ownerFieldNotification.shouldHave(Condition.text(notification)).shouldBe(Condition.visible);
     }
 
     public void setValueCvc(String cvc) {
@@ -74,11 +74,10 @@ public class PaymentPage {
     }
 
     public void checkFailCvc(String notification) {
-        SelenideElement cvcField = $x("//span[contains(text(),'CVC/CVV')]//ancestor::span[contains(@class,'input-group__input-case')]//span[@class='input__sub']");
-        assertEquals(notification, cvcField.getOwnText());
+        cvcFieldNotification.shouldHave(Condition.text(notification)).shouldBe(Condition.visible);
     }
 
-    public void checkOperationStatusVisible(String operationStatusExpect) {
+    public void checkOperationStatusVisible(String operationStatusExpect){
         SelenideElement operationStatus = $x("//div[contains(text(),\"" + operationStatusExpect + "\")]");
         operationStatus.shouldBe(Condition.visible, Duration.ofSeconds(60));
     }
